@@ -28,7 +28,8 @@
         <activity
             android:name=".AddCultivoActivity"
             android:label="@string/title_activity_add_cultivo" />
-        <activity android:name=".UpdateCultivoActivity"></activity>
+        <activity android:name=".UpdateCultivoActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

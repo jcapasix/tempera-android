@@ -4,6 +4,7 @@ import Models.Cultivo;
 import Models.Login;
 import Request.RequestCultivo;
 import Request.RequestCultivoEntity;
+import Request.RequestRegister;
 import Responses.BasicResponse;
 import Responses.CultivoResponse;
 import Responses.LoginResponse;
@@ -20,6 +21,10 @@ public interface WebServices {
     @Headers("Content-Type: application/json")
     @POST(Router.URL_LOGIN)
     Call<LoginResponse> login(@Body Login data);
+
+    @POST(Router.URL_REGISTER)
+    Call<BasicResponse> register(@Body RequestRegister data);
+
 
     @POST(Router.URL_CULTIVOS)
     Call<CultivoResponse> cultivos();

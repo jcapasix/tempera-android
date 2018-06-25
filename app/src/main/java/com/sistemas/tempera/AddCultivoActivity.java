@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Data.RetrofitClient;
 import Data.WebServices;
@@ -78,6 +79,9 @@ public class AddCultivoActivity extends AppCompatActivity {
                             if(deleteCultivo.getSuccess()){
                                 onSupportNavigateUp();
                             }
+                            else{
+                                showError("Ocurrió un problema al conectarse con el servidor, por favor intenta nuevamente.");
+                            }
                         } else {
 
                             Log.i("_tempera",String.valueOf(response.code()));
@@ -87,6 +91,7 @@ public class AddCultivoActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<BasicResponse> call, Throwable t) {
                         //Log.d(Constant.DEV_LOG_SERVICE, "call services error");
+                        progress.dismiss();
                         Log.i("_tempera",":(");
                     }
                 });
@@ -101,6 +106,10 @@ public class AddCultivoActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    private void showError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
     }
 
 }

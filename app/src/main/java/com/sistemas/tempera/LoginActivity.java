@@ -31,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView txtPassword;
     private Button btnLogin;
 
+    private Button btnRegisterUser;
+
     ProgressDialog progress;
 
 
@@ -39,8 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-
-
 
         SharedPreferences prefs = getSharedPreferences("Auth", MODE_PRIVATE);
         Boolean is_login = prefs.getBoolean("is_login", false);
@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println(txtPassword.getText());
 
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRegisterUser = (Button) findViewById(R.id.btnRegisterUser);
 
         progress = new ProgressDialog(this);
         progress.setTitle("Ingresando...");
@@ -71,6 +72,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 String username = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();
+
+
+                if(username.isEmpty() || password.isEmpty()){
+                    showLoginError("Verifique que los campos no estén vacios");
+                    return;
+                }
 
                 progress.show();
 
@@ -91,8 +98,6 @@ public class LoginActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor = getSharedPreferences("Auth", MODE_PRIVATE).edit();
                                 editor.putBoolean("is_login", true);
                                 editor.apply();
-
-
                                 showToHome();
                             }
                         } else {
@@ -104,11 +109,20 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
                         //Log.d(Constant.DEV_LOG_SERVICE, "call services error");
+                        progress.dismiss();
                         Log.i("_tempera",":(");
                     }
                 });
 
 
+            }
+        });
+
+
+        btnRegisterUser.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToRegister();
             }
         });
 
@@ -122,15 +136,17 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    private void showToRegister() {
+        Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(i);
+    }
+
     private void showLoginError(String error) {
         Toast.makeText(this, error, Toast.LENGTH_LONG).show();
     }
 
 
-    public void login(){
 
-
-    }
 
 }
 

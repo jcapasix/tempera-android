@@ -108,6 +108,7 @@
                     android:textColor="@color/colorWhite"/>
 
                 <Button
+                    android:id="@+id/btnRegisterUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Registro"

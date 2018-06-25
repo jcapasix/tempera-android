@@ -6,6 +6,6 @@ package Data;
 
 public class Configuration {
 
-    public static String ROOT_URL = "http://192.168.8.101:3000/";
+    public static String ROOT_URL = "http://192.168.88.136:3000/";
 
 }
