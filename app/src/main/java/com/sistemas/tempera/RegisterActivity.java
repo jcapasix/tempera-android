@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        setTitle("Registro");
 
         txtUsername = (TextView) findViewById(R.id.txtUsernameRegister);
         txtPassword = (TextView) findViewById(R.id.txtPasswordRegister);
