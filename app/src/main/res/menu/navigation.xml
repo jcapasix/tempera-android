@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_cultivos"
+        android:icon="@drawable/ico_loto"
+        android:title="Cultivos" />
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ico_more"
+        android:title="Más" />
+
+</menu>
