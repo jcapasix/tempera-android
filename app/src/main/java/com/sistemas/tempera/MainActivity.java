@@ -7,25 +7,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 //import android.widget.Toolbar;
-import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
-import Data.RetrofitClient;
-import Data.WebServices;
-import Responses.CultivoResponse;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
             Class fragmentClass;
 
             switch (item.getItemId()) {
+
+                case R.id.navigation_home:
+                    setTitle("Inicio");
+                    setHiddeAddbutton(true);
+                    fragment = new HomeFragment();
+                    FragmentTransaction = true;
+                    break;
                 case R.id.navigation_cultivos:
                     setTitle("Cultivos");
                     setHiddeAddbutton(false);
@@ -88,15 +82,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Cultivos");
+        setTitle("Inicio");
+        //setHiddeAddbutton(true);
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        CultivosFragment fragmentCultivos = new CultivosFragment();
+        HomeFragment fragmentHome = new HomeFragment();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.header_container, fragmentCultivos).commit();
+        fragmentManager.beginTransaction().add(R.id.header_container, fragmentHome).commit();
 
         btnAddCultivo = (FloatingActionButton)findViewById(R.id.addCultivo);
 
@@ -106,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
                 showToAddCultivo();
             }
         });
+
+        setHiddeAddbutton(true);
 
     }
 

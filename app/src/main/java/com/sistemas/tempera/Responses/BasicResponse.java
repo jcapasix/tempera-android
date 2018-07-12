@@ -1,11 +1,6 @@
-package Responses;
+package com.sistemas.tempera.Responses;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import Models.Cultivo;
 
 /**
  * Created by jcapasix on 24/06/18.

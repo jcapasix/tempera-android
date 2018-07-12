@@ -1,8 +1,8 @@
-package Responses;
+package com.sistemas.tempera.Responses;
 
 import com.google.gson.annotations.SerializedName;
 
-import Models.User;
+import com.sistemas.tempera.Models.User;
 
 /**
  * Created by jcapasix on 20/06/18.

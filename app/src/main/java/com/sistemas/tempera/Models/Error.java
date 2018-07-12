@@ -1,4 +1,4 @@
-package Models;
+package com.sistemas.tempera.Models;
 
 import com.google.gson.annotations.SerializedName;
 

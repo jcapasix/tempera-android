@@ -1,7 +1,6 @@
 package com.sistemas.tempera;
 
 import android.app.ProgressDialog;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,12 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Data.RetrofitClient;
-import Data.WebServices;
-import Models.Login;
-import Request.RequestRegister;
-import Responses.BasicResponse;
-import Responses.LoginResponse;
+import com.sistemas.tempera.Data.RetrofitClient;
+import com.sistemas.tempera.Data.WebServices;
+import com.sistemas.tempera.Request.RequestRegister;
+import com.sistemas.tempera.Responses.BasicResponse;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

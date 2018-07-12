@@ -1,4 +1,4 @@
-package adapters;
+package com.sistemas.tempera.adapters;
 
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -7,17 +7,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.sistemas.tempera.AddCultivoActivity;
 import com.sistemas.tempera.R;
 import com.sistemas.tempera.UpdateCultivoActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import Models.Cultivo;
-import Resourses.Utils;
+import com.sistemas.tempera.Models.Cultivo;
+import com.sistemas.tempera.Resourses.Utils;
 
 /**
  * Created by jcapasix on 23/06/18.
@@ -38,6 +37,7 @@ public class CultivoAdapter extends RecyclerView.Adapter<CultivoAdapter.ViewHold
         private final TextView TextViewFechaIncial;
         private final TextView TextViewFechaFinal;
         private final CardView CardViewCultivo;
+        private final FrameLayout FrameActive;
 
 
         public TextView getTextViewNombre() {
@@ -64,6 +64,10 @@ public class CultivoAdapter extends RecyclerView.Adapter<CultivoAdapter.ViewHold
             return CardViewCultivo;
         }
 
+        public FrameLayout getActiveFrame() {
+            return FrameActive;
+        }
+
         public ViewHolder(View v) {
             super(v);
             // Define click listener for the ViewHolder's View.
@@ -74,6 +78,7 @@ public class CultivoAdapter extends RecyclerView.Adapter<CultivoAdapter.ViewHold
             this.TextViewFechaIncial = (TextView) v.findViewById(R.id.txtFechaInicial);
             this.TextViewFechaFinal = (TextView) v.findViewById(R.id.txtFechaFinal);
             this.CardViewCultivo = (CardView) v.findViewById(R.id.cv_cultivo);
+            this.FrameActive = (FrameLayout) v.findViewById(R.id.activeFrame);
         }
     }
 
@@ -101,6 +106,7 @@ public class CultivoAdapter extends RecyclerView.Adapter<CultivoAdapter.ViewHold
         viewHolder.getTextViewTemperaturaMin().setText("Temperatura Mínima: "+ mDataSet.get(position).getTemperaturaMinString());
         viewHolder.getTextViewFechaIncial().setText("Fecha Inicial: " + Utils.getDate(mDataSet.get(position).getFechaInicial()));
         viewHolder.getTextViewFechaFinal().setText("Fecha Final: " + Utils.getDate(mDataSet.get(position).getFechaFinal()));
+        viewHolder.getActiveFrame().setBackgroundColor(mDataSet.get(position).getColor());
 
 
 

@@ -1,6 +1,8 @@
-package Models;
+package com.sistemas.tempera.Models;
 
-import com.google.gson.annotations.Expose;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -27,13 +29,17 @@ public class Cultivo {
     @SerializedName("fechaFinal")
     private String fechaFinal;
 
-    public Cultivo(String id, String nombre, Integer temperaturaMax, Integer temperaturaMin, String fechaInicial, String fechaFinal) {
+    @SerializedName("active")
+    private Boolean active;
+
+    public Cultivo(String id, String nombre, Integer temperaturaMax, Integer temperaturaMin, String fechaInicial, String fechaFinal, Boolean active) {
         this.id = id;
         this.nombre = nombre;
         this.temperaturaMax = temperaturaMax;
         this.temperaturaMin = temperaturaMin;
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
+        this.active = active;
     }
 
     public Cultivo(String nombre, Integer temperaturaMax, Integer temperaturaMin, String fechaInicial, String fechaFinal) {
@@ -99,5 +105,25 @@ public class Cultivo {
 
     public void setFechaFinal(String fechaFinal) {
         this.fechaFinal = fechaFinal;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public int getColor(){
+        ColorDrawable color;
+        if (this.active == true){
+            color = new ColorDrawable(Color.parseColor("#2196F3"));
+            return color.getColor();
+        }
+        else{
+            color = new ColorDrawable(Color.parseColor("#FFC107"));
+            return color.getColor();
+        }
     }
 }

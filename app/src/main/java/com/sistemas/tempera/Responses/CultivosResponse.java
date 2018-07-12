@@ -1,18 +1,17 @@
-package Responses;
+package com.sistemas.tempera.Responses;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Models.Cultivo;
-import Models.User;
+import com.sistemas.tempera.Models.Cultivo;
 
 /**
  * Created by jcapasix on 21/06/18.
  */
 
-public class CultivoResponse {
+public class CultivosResponse {
 
     @SerializedName("success")
     private Boolean success;
@@ -20,7 +19,7 @@ public class CultivoResponse {
     @SerializedName("cultivos")
     private List<Cultivo> custivos = new ArrayList<Cultivo>();
 
-    public CultivoResponse(Boolean success, List<Cultivo> custivos) {
+    public CultivosResponse(Boolean success, List<Cultivo> custivos) {
         this.success = success;
         this.custivos = custivos;
     }

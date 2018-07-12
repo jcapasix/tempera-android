@@ -1,8 +1,8 @@
-package Request;
+package com.sistemas.tempera.Request;
 
 import com.google.gson.annotations.SerializedName;
 
-import Models.Cultivo;
+import com.sistemas.tempera.Models.Cultivo;
 
 /**
  * Created by jcapasix on 24/06/18.

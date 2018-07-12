@@ -1,13 +1,13 @@
-package Data;
+package com.sistemas.tempera.Data;
 
-import Models.Cultivo;
-import Models.Login;
-import Request.RequestCultivo;
-import Request.RequestCultivoEntity;
-import Request.RequestRegister;
-import Responses.BasicResponse;
-import Responses.CultivoResponse;
-import Responses.LoginResponse;
+import com.sistemas.tempera.Models.Login;
+import com.sistemas.tempera.Request.RequestCultivo;
+import com.sistemas.tempera.Request.RequestCultivoEntity;
+import com.sistemas.tempera.Request.RequestRegister;
+import com.sistemas.tempera.Responses.BasicResponse;
+import com.sistemas.tempera.Responses.CultivoResponse;
+import com.sistemas.tempera.Responses.CultivosResponse;
+import com.sistemas.tempera.Responses.LoginResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -25,9 +25,8 @@ public interface WebServices {
     @POST(Router.URL_REGISTER)
     Call<BasicResponse> register(@Body RequestRegister data);
 
-
     @POST(Router.URL_CULTIVOS)
-    Call<CultivoResponse> cultivos();
+    Call<CultivosResponse> cultivos();
 
     @POST(Router.URL_CREATE_CULTIVO)
     Call<BasicResponse>createCultivo(@Body RequestCultivoEntity request);
@@ -38,5 +37,13 @@ public interface WebServices {
     @FormUrlEncoded
     @POST(Router.URL_DELETE_CULTIVO)
     Call<BasicResponse>deleteCultivo(@Field("id") String id);
+
+    @FormUrlEncoded
+    @POST(Router.URL_ACTIVE_CULTIVO)
+    Call<BasicResponse>activeCultivo(@Field("id") String id);
+
+    @FormUrlEncoded
+    @POST(Router.URL_GET_CULTIVO_ACTIVE)
+    Call<CultivoResponse> getActiveCultivo();
 
 }

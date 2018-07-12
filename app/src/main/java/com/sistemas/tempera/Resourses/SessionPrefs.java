@@ -1,4 +1,4 @@
-package Resourses;
+package com.sistemas.tempera.Resourses;
 
 import android.content.Context;
 import android.content.SharedPreferences;

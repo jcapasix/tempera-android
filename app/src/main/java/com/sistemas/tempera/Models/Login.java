@@ -1,4 +1,4 @@
-package Models;
+package com.sistemas.tempera.Models;
 
 /**
  * Created by jcapasix on 21/06/18.

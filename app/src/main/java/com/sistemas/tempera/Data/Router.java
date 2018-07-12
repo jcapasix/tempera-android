@@ -1,4 +1,4 @@
-package Data;
+package com.sistemas.tempera.Data;
 
 /**
  * Created by jcapasix on 20/06/18.
@@ -18,6 +18,9 @@ public class Router {
 
     public static final String URL_UPDATE_CULTIVO = API_NAME + "cultivos/update/";
     public static final String URL_DELETE_CULTIVO = API_NAME + "cultivos/delete/";
+    public static final String URL_ACTIVE_CULTIVO = API_NAME + "cultivos/active/";
     public static final String URL_CREATE_CULTIVO = API_NAME + "cultivo/";
+
+    public static final String URL_GET_CULTIVO_ACTIVE = API_NAME + "cultivo/active/";
 
 }

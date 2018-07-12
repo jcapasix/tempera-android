@@ -1,6 +1,5 @@
-package Data;
+package com.sistemas.tempera.Data;
 
-import Resourses.Constants;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

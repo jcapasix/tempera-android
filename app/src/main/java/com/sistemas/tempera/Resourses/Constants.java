@@ -1,4 +1,4 @@
-package Resourses;
+package com.sistemas.tempera.Resourses;
 
 /**
  * Created by jcapasix on 20/06/18.

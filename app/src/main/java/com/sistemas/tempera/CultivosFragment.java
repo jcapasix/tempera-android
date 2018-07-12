@@ -1,6 +1,5 @@
 package com.sistemas.tempera;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,14 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import Data.RetrofitClient;
-import Data.WebServices;
-import Models.Cultivo;
-import Responses.CultivoResponse;
-import adapters.CultivoAdapter;
+import com.sistemas.tempera.Data.RetrofitClient;
+import com.sistemas.tempera.Data.WebServices;
+import com.sistemas.tempera.Models.Cultivo;
+import com.sistemas.tempera.Responses.CultivosResponse;
+import com.sistemas.tempera.adapters.CultivoAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -79,15 +77,15 @@ public class CultivosFragment extends Fragment {
     private void initDataset() {
 
         WebServices webServices = RetrofitClient.getConfig().create(WebServices.class);
-        Call<CultivoResponse> getCultivos = webServices.cultivos();
+        Call<CultivosResponse> getCultivos = webServices.cultivos();
 
 
-        getCultivos.enqueue(new Callback<CultivoResponse>() {
+        getCultivos.enqueue(new Callback<CultivosResponse>() {
             @Override
-            public void onResponse(Call<CultivoResponse> call, Response<CultivoResponse> response) {
+            public void onResponse(Call<CultivosResponse> call, Response<CultivosResponse> response) {
                 //progress.dismiss();
                 if (response.code() == 200) {
-                    CultivoResponse cultivoResponse = response.body();
+                    CultivosResponse cultivoResponse = response.body();
 
                     if(cultivoResponse.getSuccess()){
                         cultivos = cultivoResponse.getCustivos();
@@ -101,7 +99,7 @@ public class CultivosFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<CultivoResponse> call, Throwable t) {
+            public void onFailure(Call<CultivosResponse> call, Throwable t) {
                 Log.i("_tempera",":(");
             }
         });
