@@ -12,6 +12,11 @@
         android:title="Cultivos" />
 
     <item
+        android:id="@+id/navigation_reportes"
+        android:icon="@drawable/ico_report"
+        android:title="Reportes" />
+
+    <item
         android:id="@+id/navigation_more"
         android:icon="@drawable/ico_more"
         android:title="Más" />

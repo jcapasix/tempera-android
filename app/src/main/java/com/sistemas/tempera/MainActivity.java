@@ -45,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new CultivosFragment();
                     FragmentTransaction = true;
                     break;
+
+                case R.id.navigation_reportes:
+                    setTitle("Reportes");
+                    setHiddeAddbutton(true);
+                    fragment = new ReporteFragment();
+                    FragmentTransaction = true;
+                    break;
+
                 case R.id.navigation_more:
                     setTitle("Más");
                     setHiddeAddbutton(true);

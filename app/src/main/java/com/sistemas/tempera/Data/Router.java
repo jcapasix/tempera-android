@@ -23,4 +23,8 @@ public class Router {
 
     public static final String URL_GET_CULTIVO_ACTIVE = API_NAME + "cultivo/active/";
 
+    public static final String URL_REPORTES = API_NAME + "reportes/";
+
+    public static final String URL_TEMP = API_NAME + "temp/";
+
 }

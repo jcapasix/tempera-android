@@ -8,6 +8,9 @@ import com.sistemas.tempera.Responses.BasicResponse;
 import com.sistemas.tempera.Responses.CultivoResponse;
 import com.sistemas.tempera.Responses.CultivosResponse;
 import com.sistemas.tempera.Responses.LoginResponse;
+import com.sistemas.tempera.Responses.ReportesResponse;
+import com.sistemas.tempera.Responses.TemperaturaResponse;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -45,5 +48,11 @@ public interface WebServices {
     @FormUrlEncoded
     @POST(Router.URL_GET_CULTIVO_ACTIVE)
     Call<CultivoResponse> getActiveCultivo();
+
+    @POST(Router.URL_REPORTES)
+    Call<ReportesResponse> reportes();
+
+    @POST(Router.URL_TEMP)
+    Call<TemperaturaResponse> getTemperatura();
 
 }
