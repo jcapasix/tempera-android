@@ -1,4 +1,4 @@
-package com.sistemas.tempera;
+package com.sistemas.tempera.Activities;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
+
+import com.sistemas.tempera.R;
 
 /**
  * Created by jcapasix on 23/07/18.

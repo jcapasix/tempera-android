@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:label="Temperatura"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
@@ -26,10 +26,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddCultivoActivity"
+            android:name=".Activities.AddCultivoActivity"
             android:label="@string/title_activity_add_cultivo" />
-        <activity android:name=".UpdateCultivoActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".Activities.UpdateCultivoActivity" />
+        <activity android:name=".Activities.RegisterActivity"></activity>
     </application>
 
 </manifest>

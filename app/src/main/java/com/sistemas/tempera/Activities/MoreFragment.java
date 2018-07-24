@@ -1,4 +1,4 @@
-package com.sistemas.tempera;
+package com.sistemas.tempera.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.sistemas.tempera.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

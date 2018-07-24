@@ -1,4 +1,4 @@
-package com.sistemas.tempera;
+package com.sistemas.tempera.Activities;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.sistemas.tempera.Data.RetrofitClient;
 import com.sistemas.tempera.Data.WebServices;
+import com.sistemas.tempera.R;
 import com.sistemas.tempera.Request.RequestRegister;
 import com.sistemas.tempera.Responses.BasicResponse;
 

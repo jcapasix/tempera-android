@@ -1,6 +1,5 @@
 package com.sistemas.tempera.adapters;
 
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,12 +11,8 @@ import android.widget.TextView;
 
 import com.sistemas.tempera.Models.Reporte;
 import com.sistemas.tempera.R;
-import com.sistemas.tempera.UpdateCultivoActivity;
 
 import java.util.List;
-
-import com.sistemas.tempera.Models.Cultivo;
-import com.sistemas.tempera.Resourses.Utils;
 
 /**
  * Created by jcapasix on 23/06/18.

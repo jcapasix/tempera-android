@@ -1,4 +1,4 @@
-package com.sistemas.tempera;
+package com.sistemas.tempera.Activities;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,20 +16,25 @@ import java.util.List;
 import com.sistemas.tempera.Data.RetrofitClient;
 import com.sistemas.tempera.Data.WebServices;
 import com.sistemas.tempera.Models.Cultivo;
+import com.sistemas.tempera.Models.Reporte;
+import com.sistemas.tempera.R;
 import com.sistemas.tempera.Responses.CultivosResponse;
+import com.sistemas.tempera.Responses.ReportesResponse;
 import com.sistemas.tempera.adapters.CultivoAdapter;
+import com.sistemas.tempera.adapters.ReporteAdapter;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class CultivosFragment extends Fragment {
+public class ReporteFragment extends Fragment {
 
-    public List<Cultivo> cultivos;
-    protected RecyclerView cultivosRecyclerView;
-    protected CultivoAdapter cultivosAdapter;
+    public List<Reporte> reportes;
+    protected RecyclerView reportesRecyclerView;
+    protected ReporteAdapter reporteAdapter;
 
-    public CultivosFragment(){
+    public ReporteFragment(){
 
     }
 
@@ -43,8 +48,8 @@ public class CultivosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_cultivos, container, false);
-        cultivosRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_cultivos);
+        View rootView = inflater.inflate(R.layout.fragment_reporte, container, false);
+        reportesRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_reportes);
         this.setRecyclerViewLayoutManager();
 
         return rootView;
@@ -60,13 +65,13 @@ public class CultivosFragment extends Fragment {
         int scrollPosition = 0;
 
         // If a layout manager has already been set, get current scroll position.
-        if (cultivosRecyclerView.getLayoutManager() != null) {
-            scrollPosition = ((GridLayoutManager) cultivosRecyclerView.getLayoutManager())
+        if (reportesRecyclerView.getLayoutManager() != null) {
+            scrollPosition = ((GridLayoutManager) reportesRecyclerView.getLayoutManager())
                     .findFirstCompletelyVisibleItemPosition();
         }
 
-        cultivosRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-        cultivosRecyclerView.scrollToPosition(scrollPosition);
+        reportesRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        reportesRecyclerView.scrollToPosition(scrollPosition);
     }
 
     public interface OnFragmentInteractionListener {
@@ -77,20 +82,20 @@ public class CultivosFragment extends Fragment {
     private void initDataset() {
 
         WebServices webServices = RetrofitClient.getConfig().create(WebServices.class);
-        Call<CultivosResponse> getCultivos = webServices.cultivos();
+        Call<ReportesResponse> getReportes = webServices.reportes();
 
 
-        getCultivos.enqueue(new Callback<CultivosResponse>() {
+        getReportes.enqueue(new Callback<ReportesResponse>() {
             @Override
-            public void onResponse(Call<CultivosResponse> call, Response<CultivosResponse> response) {
+            public void onResponse(Call<ReportesResponse> call, Response<ReportesResponse> response) {
                 //progress.dismiss();
                 if (response.code() == 200) {
-                    CultivosResponse cultivoResponse = response.body();
+                    ReportesResponse cultivoResponse = response.body();
 
                     if(cultivoResponse.getSuccess()){
-                        cultivos = cultivoResponse.getCustivos();
-                        cultivosAdapter = new CultivoAdapter(cultivos);
-                        cultivosRecyclerView.setAdapter(cultivosAdapter);
+                        reportes = cultivoResponse.getReportes();
+                        reporteAdapter = new ReporteAdapter(reportes);
+                        reportesRecyclerView.setAdapter(reporteAdapter);
                     }
                 } else {
 
@@ -99,7 +104,7 @@ public class CultivosFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<CultivosResponse> call, Throwable t) {
+            public void onFailure(Call<ReportesResponse> call, Throwable t) {
                 Log.i("_tempera",":(");
             }
         });

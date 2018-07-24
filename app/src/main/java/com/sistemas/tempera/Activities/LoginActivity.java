@@ -1,4 +1,4 @@
-package com.sistemas.tempera;
+package com.sistemas.tempera.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.sistemas.tempera.Data.RetrofitClient;
 import com.sistemas.tempera.Data.WebServices;
 import com.sistemas.tempera.Models.Login;
+import com.sistemas.tempera.R;
 import com.sistemas.tempera.Responses.LoginResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
